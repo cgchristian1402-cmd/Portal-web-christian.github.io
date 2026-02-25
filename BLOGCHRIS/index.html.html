@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christian García Díaz | Portafolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= INICIO 1 ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f6fb;
+    color:#333;
+}
+
+/* ================= INICIO 2================= */
+.header{
+    background:linear-gradient(rgba(0,0,40,.8),rgba(0,0,40,.8)),
+    url("https://img.freepik.com/vector-gratis/ilustracion-intranet-diseno-plano_23-2149363702.jpg?semt=ais_hybrid&w=740&q=80");
+    background-size:cover;
+    background-position:center;
+    text-align:center;
+    padding:150px 20px;
+    color:white;
+}
+
+.header h1{
+    font-size:60px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.header p{
+    font-size:20px;
+    margin-top:10px;
+    opacity:.9;
+}
+
+.profile-img{
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    border:6px solid white;
+    margin-top:2px;
+    transition:0.5s;
+}
+
+.profile-img:hover{
+    transform:scale(1.1);
+}
+
+/* ================= OBJETIVO ================= */
+section{
+    padding:80px 10%;
+}
+
+h2{
+    font-size:28px;
+    margin-bottom:40px;
+    position:relative;
+}
+
+h2::after{
+    content:"";
+    width:60px;
+    height:3px;
+    background:#e63946;
+    display:block;
+    margin-top:10px;
+}
+
+/* ================= SOBRE MI ================= */
+.sobre{
+    text-align:center;
+    background:#e9edf5;
+}
+
+.sobre p{
+    max-width:900px;
+    margin:auto;
+    line-height:1.7;
+}
+
+/* =================  CONOCIMIENTOS TEC ================= */
+.aptitudes{
+    background:#1d3557;
+    color:white;
+}
+
+.mosaico{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+.box{
+    padding:40px 20px;
+    text-align:center;
+    border-radius:6px;
+    transition:.4s;
+}
+
+.box:hover{
+    transform:scale(1.05);
+}
+
+.claro{
+    background:#f1faee;
+    color:#1d3557;
+}
+
+.oscuro{
+    background:#457b9d;
+}
+
+.grande{
+    grid-column:span 2;
+}
+
+/* ================= PROYECTOS ================= */
+.proyectos{
+    background:#f8f9fa;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:50px;
+}
+
+.card{
+    flex:1;
+    min-width:250px;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 6px 15px rgba(0,0,0,.1);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+/* ===== CARRUSEL  ===== */
+
+.carrusel{
+    position:relative;
+    max-width:700px;
+    margin:0 auto;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.carrusel img{
+    position:absolute;
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    border-radius:15px;
+    opacity:0;
+    transition:opacity .8s ease-in-out;
+}
+
+.carrusel img.activa{
+    opacity:1;
+    position:relative;
+}
+
+.btn-carrusel{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,.6);
+    color:white;
+    border:none;
+    font-size:22px;
+    padding:10px 15px;
+    cursor:pointer;
+    border-radius:50%;
+    transition:.3s;
+}
+
+.btn-carrusel:hover{
+    background:#e63946;
+}
+
+.prev{ left:15px; }
+.next{ right:15px; }
+
+.indicadores{
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:10px;
+}
+
+.punto{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:white;
+    opacity:.5;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.punto.activo{
+    opacity:1;
+    background:#e63946;
+}
+
+/* ================= HABILIDADES BLANDAS ================= */
+.habilidades{
+    background:#ffffff;
+}
+
+.lista{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+.lista div{
+    background:#1d3557;
+    color:white;
+    padding:20px;
+    text-align:center;
+    border-radius:6px;
+    transition:.3s;
+}
+
+.lista div:hover{
+    background:#e63946;
+}
+
+/* ================= INFO CONTACTO ================= */
+.info-contacto{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.info{
+    flex:1;
+    background:#2f4b7c;
+    color:white;
+    padding:50px;
+}
+
+.contacto{
+    flex:1;
+    background:#dde5f1;
+    padding:50px;
+}
+
+.contacto input,
+.contacto textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border:none;
+    border-bottom:2px solid #999;
+    background:transparent;
+}
+
+.contacto button{
+    padding:12px 30px;
+    background:#1d3557;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#1d3557;
+    color:white;
+}
+
+@media(max-width:768px){
+    .cards{flex-direction:column;}
+    .grande{grid-column:span 1;}
+    .info-contacto{flex-direction:column;}
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>CHRISTIAN GARCÍA DÍAZ</h1>
+    <p>Ingeniería en Sistemas Computacionales</p>
+    <img src="chris.jpg" class="profile-img">
+</header>
+
+<section class="sobre">
+    <h2>OBJETIVO PROFESIONAL</h2>
+    <p>
+        Estudiante de Ingeniería en Sistemas Computacionales con conocimientos en desarrollo web, programación y administración de bases de datos. Busco una oportunidad donde pueda aplicar mis habilidades, aportar soluciones eficientes y continuar desarrollándome profesionalmente en el sector tecnológico.
+    </p>
+</section>
+
+<section>
+    <h2>FORMACIÓN ACADÉMICA</h2>
+    <p>
+        •Técnico en computación de la Universidad de Ecatepec Bachillerato Tecnologico, Ecatepec de Morelos, Estado de México..<br><br>
+        •Cursando actualmente una Licenciatura en Ingeniería en Sistemas Computacionales (8to cuatrimestre de 9) Universidad de Ecatepec, Ecatepec de Morelos, Estado de México
+    </p>
+</section>
+
+<section class="aptitudes">
+    <h2>CONOCIMIENTOS TÉCNICOS</h2>
+    <div class="mosaico">
+        <div class="box grande claro"><h3>Java</h3><p>NetBeans</p></div>
+        <div class="box oscuro"><h3>HTML5</h3></div>
+        <div class="box claro"><h3>CSS3</h3></div>
+        <div class="box grande oscuro"><h3>MySQL</h3></div>
+        <div class="box claro"><h3>JavaScript</h3></div>
+        <div class="box oscuro"><h3>Visual Studio Code</h3></div>
+        <div class="box claro"><h3>Figma</h3></div>
+        <div class="box oscuro"><h3>Redes LAN</h3></div>
+        <div class="box claro"><h3>Wireshark</h3></div>
+    </div>
+</section>
+
+<section class="proyectos">
+    <h2>PROYECTOS ACADÉMICOS DESTACADOS</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Desarrollo Web Responsivo</h3>
+            <p>Creación de páginas web adaptables utilizando HTML5, CSS3 y diseño responsive.</p>
+        </div>
+        <div class="card">
+            <h3>Base de Datos MySQL</h3>
+            <p>Diseño y administración de bases de datos relacionales, consultas SQL y normalización.</p>
+        </div>
+        <div class="card">
+            <h3>Análisis de Red</h3>
+            <p>Monitoreo y análisis de tráfico utilizando Wireshark para detección de paquetes.</p>
+        </div>
+        <div class="card">
+            <h3>Aplicaciones en Java</h3>
+            <p>Desarrollo de aplicaciones de escritorio en NetBeans con conexión a bases de datos.</p>
+        </div>
+    </div>
+
+    <div class="carrusel">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" class="activa">
+        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87">
+
+        <button class="btn-carrusel prev">&#10094;</button>
+        <button class="btn-carrusel next">&#10095;</button>
+        <div class="indicadores"></div>
+    </div>
+</section>
+
+<section class="habilidades">
+    <h2>HABILIDADES BLANDAS</h2>
+    <div class="lista">
+        <div>Resolución de problemas</div>
+        <div>Trabajo en equipo</div>
+        <div>Aprendizaje rápido</div>
+        <div>Responsabilidad</div>
+        <div>Adaptabilidad tecnológica</div>
+    </div>
+</section>
+
+<section class="info-contacto">
+    <div class="info">
+        <h2>INFO</h2>
+        <p><strong>Ubicación:</strong> Ecatepec, Estado de México</p>
+        <p><strong>Teléfono:</strong> 56-57-83-61-17</p>
+        <p><strong>Email:</strong> cgchristian1402@gmail.com</p>
+    </div>
+
+    <div class="contacto">
+        <h2>CONTACTO</h2>
+        <input type="text" placeholder="Nombre">
+        <input type="email" placeholder="Email">
+        <textarea rows="4" placeholder="Mensaje"></textarea>
+        <button>Enviar</button>
+    </div>
+</section>
+
+<footer>
+    © 2026 Christian García Díaz | Portafolio Profesional
+</footer>
+
+<script>
+const imagenes = document.querySelectorAll(".carrusel img");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+const contenedorIndicadores = document.querySelector(".indicadores");
+
+let index = 0;
+let intervalo;
+
+imagenes.forEach((_, i) => {
+    const punto = document.createElement("div");
+    punto.classList.add("punto");
+    if(i === 0) punto.classList.add("activo");
+    punto.addEventListener("click", () => {
+        index = i;
+        mostrarImagen(index);
+        reiniciarAuto();
+    });
+    contenedorIndicadores.appendChild(punto);
+});
+
+const puntos = document.querySelectorAll(".punto");
+
+function mostrarImagen(i){
+    imagenes.forEach(img => img.classList.remove("activa"));
+    puntos.forEach(p => p.classList.remove("activo"));
+    imagenes[i].classList.add("activa");
+    puntos[i].classList.add("activo");
+}
+
+function siguiente(){
+    index = (index + 1) % imagenes.length;
+    mostrarImagen(index);
+}
+
+function anterior(){
+    index = (index - 1 + imagenes.length) % imagenes.length;
+    mostrarImagen(index);
+}
+
+next.addEventListener("click", ()=>{
+    siguiente();
+    reiniciarAuto();
+});
+
+prev.addEventListener("click", ()=>{
+    anterior();
+    reiniciarAuto();
+});
+
+function autoSlide(){
+    intervalo = setInterval(siguiente, 4000);
+}
+
+function reiniciarAuto(){
+    clearInterval(intervalo);
+    autoSlide();
+}
+
+autoSlide();
+</script>
+
+</body>
+</html>
